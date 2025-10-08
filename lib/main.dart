@@ -1,3 +1,4 @@
+import 'package:datamanager/screens/KeyGenerationPage.dart';
 import 'package:flutter/material.dart';
 import 'services/activation_service.dart';
 import 'screens/home_screen.dart';
@@ -113,8 +114,19 @@ class _ActivationWrapperState extends State<ActivationWrapper> {
               const Text('Veuillez activer l\'application'),
               const SizedBox(height: 20),
               ElevatedButton(
-                onPressed: _showActivationDialog,
+                onPressed: _showActivationDialog,  // Bouton pour afficher la boîte de dialogue d'activation
                 child: const Text('Activer'),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  // Navigation vers la page de génération de clé (modification ajoutée)
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) =>  KeyGenerationPage()),
+                  );
+                },
+                child: const Text('Générer une clé'),  // Nouveau bouton pour générer une clé
               ),
             ],
           ),
